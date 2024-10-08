@@ -2,5 +2,7 @@
 
 # automaticly symlink dotfiles to their respective places
 # nixos
-rm /etc/nixos/configuration.nix
-ln -s $(realpath ./nixos/configuration.nix) /etc/nixos/configuration.nix
+sudo ln -sf $(realpath ./nixos/configuration.nix) /etc/nixos/configuration.nix
+
+# hyprland
+ln -sf $(realpath ./hypr/hyprland.conf) $HOME/.config/hypr/hyprland.conf 
