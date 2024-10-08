@@ -93,7 +93,7 @@
     pkgs.networkmanagerapplet
  
     firefox
-    neovim
+    pkgs.neovim
     git
     slack
     nodejs_22
