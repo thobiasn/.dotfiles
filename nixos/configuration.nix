@@ -9,6 +9,13 @@
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
     ];
+  nixpkgs = {
+    config = {
+      packageOverrides = pkgs: {
+        unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {};
+      };
+    };
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -65,43 +72,43 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    pkgs.vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    pkgs.wget
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
     
     # top bar for hyprland
-    pkgs.waybar
+    waybar
     # override that apparently makes it work?
     (pkgs.waybar.overrideAttrs (oldAttrs: {
       mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
     }))
 
     # Notification bar for hyprland
-    pkgs.dunst
-    pkgs.libnotify
+    dunst
+    libnotify
 
     # Wallpaper daemon
-    pkgs.swww
+    swww
 
     # Terminal!
-    pkgs.kitty
-    pkgs.wl-clipboard
+    kitty
+    wl-clipboard
 
     # App launcher
-    pkgs.rofi-wayland
+    rofi-wayland
 
     # network manager applet
-    pkgs.networkmanagerapplet
+    networkmanagerapplet
  
-    pkgs.firefox
-    pkgs.neovim
-    pkgs.git
-    pkgs.slack
-    pkgs.nodejs_22
-    pkgs.deno
-    pkgs.pnpm_8
-    pkgs.supabase-cli
-    pkgs.ripgrep
-    pkgs.fd
+    firefox
+    unstable.neovim
+    git
+    slack
+    nodejs_22
+    deno
+    pnpm_8
+    unstable.supabase-cli
+    ripgrep
+    fd
   ];
 
   # Enable font config
