@@ -12,6 +12,7 @@ sudo ln -sf "$SCRIPT_DIR/nixos/configuration.nix" /etc/nixos/configuration.nix
 
 # hyprland
 ln -sf "$SCRIPT_DIR/hypr/hyprland.conf" "$USER_HOME/.config/hypr/hyprland.conf"
+ln -sf "$SCRIPT_DIR/hypr/start.sh" "$USER_HOME/.config/hypr/start.sh"
 
 # rofi
 ln -sf "$SCRIPT_DIR/rofi/config.rasi" "$USER_HOME/.config/rofi/config.rasi"
