@@ -182,6 +182,8 @@
 
   # enable docker
   virtualisation.docker.enable = true;
-
-  # fonts
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 }
