@@ -65,8 +65,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
+    pkgs.vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    pkgs.wget
     
     # top bar for hyprland
     pkgs.waybar
@@ -77,29 +77,31 @@
 
     # Notification bar for hyprland
     pkgs.dunst
-    libnotify
+    pkgs.libnotify
 
     # Wallpaper daemon
-    swww
+    pkgs.swww
 
     # Terminal!
-    kitty
-    wl-clipboard
+    pkgs.kitty
+    pkgs.wl-clipboard
 
     # App launcher
-    rofi-wayland
+    pkgs.rofi-wayland
 
     # network manager applet
     pkgs.networkmanagerapplet
  
-    firefox
+    pkgs.firefox
     pkgs.neovim
-    git
-    slack
-    nodejs_22
-    deno
-    pnpm_8
-    supabase-cli
+    pkgs.git
+    pkgs.slack
+    pkgs.nodejs_22
+    pkgs.deno
+    pkgs.pnpm_8
+    pkgs.supabase-cli
+    pkgs.ripgrep
+    pkgs.fd
   ];
 
   # Enable font config
@@ -115,6 +117,7 @@
     mplus-outline-fonts.githubRelease
     dina-font
     proggyfonts
+    nerdfonts
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -149,6 +152,9 @@
     enable = true;
     xwayland.enable = true;
   };
+
+  # Enable lazygit
+  programs.lazygit.enable = true;
   
   # some window file manager stuff im not sure
   xdg.portal.enable = true;
