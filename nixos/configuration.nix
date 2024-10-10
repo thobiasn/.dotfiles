@@ -4,10 +4,14 @@
 
 { config, pkgs, ... }:
 
+let
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/master.tar.gz";
+in
 {
   imports =
     [ # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
+      (import "${home-manager}/nixos")
     ];
   nixpkgs = {
     config = {
@@ -109,6 +113,10 @@
     unstable.supabase-cli
     ripgrep
     fd
+    unzip
+    fzf
+    nix-index
+    nix-autobahn
   ];
 
   # Enable font config
@@ -203,5 +211,14 @@
       iptables -I INPUT 1 -s 172.16.0.0/12 -p tcp -d 172.17.0.1 -j ACCEPT
       iptables -I INPUT 2 -s 172.16.0.0/12 -p udp -d 172.17.0.1 -j ACCEPT
     '';
-  };
+  }; 
+
+    # Enable nix ld
+  programs.nix-ld.enable = true;
+
+  # Sets up all the libraries to load
+  programs.nix-ld.libraries = with pkgs; [
+    stdenv.cc.cc
+    # ...
+  ];
 }
