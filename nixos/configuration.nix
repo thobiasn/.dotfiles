@@ -115,8 +115,9 @@ in
     fd
     unzip
     fzf
-    nix-index
-    nix-autobahn
+    python3
+    cargo
+    gcc
   ];
 
   # Enable font config
@@ -213,9 +214,8 @@ in
     '';
   }; 
 
-    # Enable nix ld
+  # Enable nix ld
   programs.nix-ld.enable = true;
-
   # Sets up all the libraries to load
   programs.nix-ld.libraries = with pkgs; [
     stdenv.cc.cc
