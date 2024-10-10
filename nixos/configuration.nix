@@ -118,6 +118,7 @@ in
     python3
     cargo
     gcc
+    postgresql
   ];
 
   # Enable font config
