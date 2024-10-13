@@ -24,3 +24,7 @@ ln -sf "$SCRIPT_DIR/nvim" "$USER_HOME/.config/nvim"
 # dunst notifications
 rm -rf "$USER_HOME/.config/dunst"
 ln -sf "$SCRIPT_DIR/dunst" "$USER_HOME/.config/dunst"
+
+# waybar configuration
+rm -rf "$USER_HOME/.config/waybar"
+ln -sf "$SCRIPT_DIR/waybar" "$USER_HOME/.config/waybar"

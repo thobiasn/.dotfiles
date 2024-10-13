@@ -9,7 +9,7 @@ swww init &
 nm-applet --indicator &
 
 # the bar
-waybar &
+waybar -c ~/.config/waybar/river/river_config -s ~/.config/waybar/river/river_style.css &
 
 # dunst
 dunst
