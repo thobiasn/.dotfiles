@@ -28,3 +28,7 @@ ln -sf "$SCRIPT_DIR/dunst" "$USER_HOME/.config/dunst"
 # waybar configuration
 rm -rf "$USER_HOME/.config/waybar"
 ln -sf "$SCRIPT_DIR/waybar" "$USER_HOME/.config/waybar"
+
+# wallpapers configuration
+rm -rf "$USER_HOME/wallpapers"
+ln -sf "$SCRIPT_DIR/wallpapers" "$USER_HOME/wallpapers"

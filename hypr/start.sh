@@ -4,6 +4,7 @@
 swww init &
 # setting wallpaper
 # swww img ~/wallpapers/something.png &
+swww img ~/wallpapers/evening-sky.png &
 
 # network manager applet
 nm-applet --indicator &
