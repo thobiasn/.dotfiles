@@ -2,9 +2,24 @@
 {
 	"layer": "top",
 	"modules-left": ["custom/launcher","cpu","memory","custom/media","tray"],
-	"modules-center": ["river/tags"],
+	"modules-center": ["hyprland/workspaces", "river/tags"],
 	"modules-right": ["custom/updates","custom/wallpaper","backlight","pulseaudio","clock", "battery","custom/power"],
-	
+
+"hyprland/workspaces": {
+    "format": "{name}",
+    "format-icons": {
+      "active": "",
+      "default": "",
+      "persistent": ""
+    },
+    "on-scroll-up": "hyprctl dispatch workspace r-1",
+    "on-scroll-down": "hyprctl dispatch workspace r+1",
+    "all-outputs": false,
+    "persistent_workspaces": {
+      "*": 5
+    }
+  },
+
 	"pulseaudio": {
 		"tooltip": false,
 		"scroll-step": 5,
