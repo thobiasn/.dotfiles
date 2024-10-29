@@ -17,6 +17,7 @@ in
     config = {
       packageOverrides = pkgs: {
         unstable = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz") {};
+        unstableSmall = import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/nixos-unstable-small.tar.gz") {};
       };
     };
   };
@@ -103,7 +104,7 @@ in
     git
     slack
     nodejs_22
-    deno
+    unstableSmall.deno
     pnpm_8
     unstable.supabase-cli
     ripgrep
@@ -114,6 +115,10 @@ in
     cargo
     gcc
     postgresql
+    zip
+    bruno
+    hyprshot
+    brightnessctl
   ];
 
   # Enable font config
@@ -198,6 +203,16 @@ in
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+  };
+
+  # backlight
+  programs.light.enable = true;
+  services.actkbd = {
+    enable = true;
+    bindings = [
+      { keys = [ 224 ]; events = [ "key" ]; command = "/run/wrappers/bin/light -A 10"; }
+      { keys = [ 225 ]; events = [ "key" ]; command = "/run/wrappers/bin/light -U 10"; }
+    ];
   };
 
   environment.sessionVariables = {
