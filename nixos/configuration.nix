@@ -112,7 +112,7 @@ in
     unzip
     fzf
     python3
-    cargo
+    unstable.cargo
     gcc
     postgresql
     zip

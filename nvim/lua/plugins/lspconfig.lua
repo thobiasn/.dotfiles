@@ -48,6 +48,8 @@ return {
           ),
         },
       },
+      -- Automatically format on save
+      autoformat = false,
     },
   },
 }
