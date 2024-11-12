@@ -5,3 +5,6 @@ vim.g.dbs = {
   dev = "postgresql://postgres:postgres@127.0.0.1:54322/postgres",
   --staging = "Replace with your database connection URL.",
 }
+
+-- LazyVim auto format
+vim.g.autoformat = false

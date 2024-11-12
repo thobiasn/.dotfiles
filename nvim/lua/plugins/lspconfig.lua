@@ -31,7 +31,8 @@ return {
     "neovim/nvim-lspconfig",
     ---@class PluginLspOpts
     opts = {
-      ---@type lspconfig.options
+      -- Automatically format on save
+      autoformat = false,
       servers = {
         vtsls = {
           root_dir = deepest_root_pattern(
@@ -48,8 +49,6 @@ return {
           ),
         },
       },
-      -- Automatically format on save
-      autoformat = false,
     },
   },
 }
