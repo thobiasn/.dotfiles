@@ -32,3 +32,7 @@ ln -sf "$SCRIPT_DIR/waybar" "$USER_HOME/.config/waybar"
 # wallpapers configuration
 rm -rf "$USER_HOME/wallpapers"
 ln -sf "$SCRIPT_DIR/wallpapers" "$USER_HOME/wallpapers"
+
+# hyprpaper configuration
+ln -sf "$SCRIPT_DIR/hypr/hyprpaper.conf" "$USER_HOME/.config/hypr/hyprpaper.conf"
+ln -sf "$SCRIPT_DIR/hypr/hyprpaper-rotate.sh" "$USER_HOME/.config/hypr/hyprpaper-rotate.sh"

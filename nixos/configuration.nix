@@ -87,7 +87,8 @@ in
     libnotify
 
     # Wallpaper daemon
-    swww
+    #swww
+    hyprpaper
 
     # Terminal!
     kitty
@@ -119,6 +120,7 @@ in
     bruno
     hyprshot
     brightnessctl
+    google-chrome
   ];
 
   # Enable font config
@@ -244,4 +246,21 @@ in
     stdenv.cc.cc
     # ...
   ];
+
+  # Enable Thunar file explorer
+  programs.thunar.enable = true;
+  
+  location.provider = "geoclue2";
+  services.redshift = {
+    enable = true;
+    brightness = {
+      # Note the string values below.
+      day = "1";
+      night = "1";
+    };
+    temperature = {
+      day = 5500;
+      night = 3700;
+    };
+  };
 }

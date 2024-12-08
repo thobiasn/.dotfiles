@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-# initializing wallpaper daemon
-swww init &
-# setting wallpaper
-# swww img ~/wallpapers/something.png &
-swww img ~/wallpapers/evening-sky.png &
+# Initialize Hyprpaper for wallpaper rotation
+hyprpaper &
 
-# network manager applet
+# Start the wallpaper rotation script
+#bash ~/.config/hypr/hyprpaper-rotate.sh &
+
+# Network Manager applet
 nm-applet --indicator &
 
-# the bar
+# The bar (Waybar configuration for river layout)
 waybar -c ~/.config/waybar/river/river_config -s ~/.config/waybar/river/river_style.css &
 
-# dunst
-dunst
+# Dunst for notifications
+dunst &
