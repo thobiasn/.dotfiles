@@ -67,7 +67,7 @@ in
   users.users.thobias = {
     isNormalUser = true;
     description = "Thobias";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [];
   };
 
@@ -104,7 +104,7 @@ in
     unstable.neovim
     git
     slack
-    nodejs_22
+    nodejs_20
     unstableSmall.deno
     pnpm_8
     unstable.supabase-cli
@@ -121,6 +121,7 @@ in
     hyprshot
     brightnessctl
     google-chrome
+    openssl
   ];
 
   # Enable font config
@@ -225,7 +226,8 @@ in
   virtualisation.docker.enable = true;
 
   # add ourselves to the docker group
-  users.extraGroups.docker.members = [ "thobias" ];
+  #users.users.thobias.extraGroups = [ "docker" ];
+  #users.extraGroups.docker.members = [ "thobias" ];
 
   # allow docker through the firewall
   # this is required when we want to connect two
@@ -233,6 +235,7 @@ in
   # we would be able to use host.docker.internal
   networking.firewall = {
     enable = true;
+    checkReversePath = false;
     extraCommands = ''
       iptables -I INPUT 1 -s 172.16.0.0/12 -p tcp -d 172.17.0.1 -j ACCEPT
       iptables -I INPUT 2 -s 172.16.0.0/12 -p udp -d 172.17.0.1 -j ACCEPT

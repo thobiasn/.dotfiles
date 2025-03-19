@@ -26,6 +26,8 @@ function deepest_root_pattern(patterns1, patterns2)
   end
 end
 
+local nvim_lsp = require('lspconfig')
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -35,11 +37,11 @@ return {
       autoformat = false,
       servers = {
         vtsls = {
+          single_file_support = true,
           root_dir = deepest_root_pattern(
             { "package.json", "tsconfig.json" },
             { "deno.json", "deno.jsonc", "import_map.json" }
           ),
-          single_file_support = true,
         },
 
         denols = {
