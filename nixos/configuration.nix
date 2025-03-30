@@ -118,10 +118,13 @@ in
     postgresql
     zip
     bruno
+    postman
     hyprshot
     brightnessctl
     google-chrome
     openssl
+    gnumake
+    pciutils
   ];
 
   # Enable font config
@@ -266,4 +269,6 @@ in
       night = 3700;
     };
   };
+
+  hardware.keyboard.qmk.enable = true;
 }
