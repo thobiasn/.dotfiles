@@ -22,6 +22,8 @@ in
     };
   };
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -76,6 +78,7 @@ in
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
@@ -85,6 +88,9 @@ in
     # Notification bar for hyprland
     dunst
     libnotify
+
+    # supabase
+    (import ./packages/supabase-cli-bin { inherit pkgs; })
 
     # Wallpaper daemon
     #swww
@@ -107,7 +113,6 @@ in
     nodejs_20
     unstableSmall.deno
     pnpm_8
-    unstable.supabase-cli
     ripgrep
     fd
     unzip
@@ -125,6 +130,7 @@ in
     openssl
     gnumake
     pciutils
+    webcord
   ];
 
   # Enable font config
