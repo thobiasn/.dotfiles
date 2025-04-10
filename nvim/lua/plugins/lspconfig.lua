@@ -50,6 +50,8 @@ return {
             { "package.json", "tsconfig.json" }
           ),
         },
+
+        //postgres_lsp = {},
       },
     },
   },

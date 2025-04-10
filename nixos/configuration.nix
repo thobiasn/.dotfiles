@@ -131,6 +131,7 @@ in
     gnumake
     pciutils
     webcord
+    xdg-utils
   ];
 
   # Enable font config
